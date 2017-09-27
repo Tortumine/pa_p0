@@ -27,18 +27,20 @@ void f1(int* a)
 {
     int t, i, j;
     for(i = 0; i<N; i++)
-        for(j=N; j>i; --j)
-            f2(&a[j], a+j-1, a[j] < a[j-1]);
+        for(j=N-1; j>i; --j)
+            f2(&a[j], &a[j-1], a[j] < a[j-1]);
 }
 
 int median()
 {
     unsigned int seed = 42;
-    int *b=0, i;
+    int b=0, i;
     int* a = (int*) malloc(4 * N);
     for(i=0;i<N;i++)
        a[i] = f(-10, 11, &seed);
     f1(a);
-    *b = a[N/2];
-    return *b;
+    b = a[N/2];
+    free(a);
+    return b;
 }
+
