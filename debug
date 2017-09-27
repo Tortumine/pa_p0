@@ -1,0 +1,3 @@
+#!/bin/bash
+gcc main.c Median.c --std=c99 --pedantic -Wall -Wextra -Wmissing-prototypes -g -o prog
+valgrind ./prog

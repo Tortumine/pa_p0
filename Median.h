@@ -4,4 +4,5 @@
  * RETURN
  * median            The median of the random array
  * --------------------------------------------------------------------*/
+int f(int, int, unsigned int*);
 int median(void);

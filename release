@@ -1,0 +1,2 @@
+#!/bin/bash
+gcc main.c Median.c --std=c99 --pedantic -Wall -Wextra -Wmissing-prototypes -o prog

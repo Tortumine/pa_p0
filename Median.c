@@ -1,20 +1,23 @@
 #include <stdlib.h>
 #include <string.h>
-#define uint unsigned int
 #define N 101
-
-int f(int m, int M, uint* s)
+/*
+ * XOR Shift rng
+ * get    : min max and seed*
+ * return : random number
+ * modify : seed
+ */
+int f(int m, int M, unsigned int* s)
 {
-    *s^= (uint)(*s << 13);
-    s[0] ^= (uint)(*s >> 17);
-    *s ^= (uint)(s[0] << 5);
+    *s ^= (unsigned int)(*s << 13);
+    *s ^= (unsigned int)(*s >> 17);
+    *s ^= (unsigned int)(*s << 5);
     return m + (*s%(M-m));
 }
 
 void f2(int* a,int* b, int c)
 {
-        if(c==0 )
-                return;
+        if(c==0) return;
         int t = *b;
         *b = *a;
         *a = t;
@@ -30,11 +33,11 @@ void f1(int* a)
 
 int median()
 {
-    uint s;
+    unsigned int seed = 42;
     int *b=0, i;
     int* a = (int*) malloc(4 * N);
     for(i=0;i<N;i++)
-       a[i] = f(-10, 11, &s);
+       a[i] = f(-10, 11, &seed);
     f1(a);
     *b = a[N/2];
     return *b;
