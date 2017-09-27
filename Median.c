@@ -14,7 +14,9 @@ int f(int m, int M, unsigned int* s)
     *s ^= (unsigned int)(*s << 5);
     return m + (*s%(M-m));
 }
-
+/*
+*  Swap int a and int b
+*/
 void f2(int* a,int* b, int c)
 {
         if(c==0) return;
@@ -22,10 +24,12 @@ void f2(int* a,int* b, int c)
         *b = *a;
         *a = t;
 }
-
+/*
+*  Sort (buble)
+*/
 void f1(int* a)
 {
-    int t, i, j;
+    int i, j;
     for(i = 0; i<N; i++)
         for(j=N-1; j>i; --j)
             f2(&a[j], &a[j-1], a[j] < a[j-1]);
@@ -43,4 +47,5 @@ int median()
     free(a);
     return b;
 }
+
 
