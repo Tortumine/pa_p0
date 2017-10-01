@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
+#include "Median.h"
 #define N 101
 #define uint unsigned int
 
